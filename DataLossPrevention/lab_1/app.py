@@ -23,12 +23,11 @@ if user_prompt := st.chat_input("Ask the AI anything..."):
     with st.chat_message("user"):
         st.markdown(user_prompt)
 
-    # Appel à l'API locale d'Ollama
+    # Appel à l'API locale d'Ollama sur l'hôte
     with st.chat_message("assistant"):
         message_placeholder = st.empty()
         
         try:
-            # On envoie la requête à l'instance Ollama qui tourne dans le conteneur
             response = requests.post(
                 "http://host.docker.internal:11434/api/generate",
                 json={
@@ -45,7 +44,7 @@ if user_prompt := st.chat_input("Ask the AI anything..."):
                 ai_response = f"Error: Ollama returned status code {response.status_code}"
                 
         except requests.exceptions.ConnectionError:
-            ai_response = "Error: Could not connect to Ollama. Is the server running?"
+            ai_response = "Error: Could not connect to Ollama. Is the server running on the host?"
 
         # Affichage et sauvegarde de la réponse
         message_placeholder.markdown(ai_response)
