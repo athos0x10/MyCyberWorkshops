@@ -1,4 +1,4 @@
-# Lab 1: Unsecured AI Environment & Prompt Injection
+# Lab 1: Unsecured AI Environment
 
 ## Objective
 
