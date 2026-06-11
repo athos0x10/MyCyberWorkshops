@@ -16,6 +16,7 @@ This workshop is for educational purposes only. Ethical hacking is conducted str
     - [Modern Solutions: Fighting Fire with Fire](#modern-solutions-fighting-fire-with-fire)
     - [Control and Monitoring](#control-and-monitoring)
   - [Practical Lab: The AI Proxy Duel](#practical-lab-the-ai-proxy-duel)
+    - [Progressivity of the Challenges (Labs 1 to 3)](#progressivity-of-the-challenges-labs-1-to-3)
 
 ---
 
@@ -74,3 +75,20 @@ Participants will engage in a two-part hands-on exercise:
 
 1. **The Attack (Red Team):** Attempt to extract a "Flag" (sensitive data) from an unsecured AI assistant using prompt injection and obfuscation techniques.
 2. **The Defense (Blue Team):** Implement a Python-based proxy layer. Participants will write regex-based filters and logic to sanitize AI outputs, then challenge other teams to bypass their newly deployed DLP rules.
+
+Here is the updated section, written in English, keeping the descriptions concise and high-level so it guides the students through the progression without spoiling the actual solutions:
+
+### Progressivity of the Challenges (Labs 1 to 3)
+
+To succeed in this duel, participants must overcome three distinct layers of security, simulating the real-world evolution of LLM hardening:
+
+* **Lab 1: The Naive Assistant (Discovery Level)**
+* *Overview:* The model has no safety guidelines and inherently trusts user input. Participants will practice basic interaction to extract the secret via a **direct query**, establishing a baseline for how the model handles raw data without constraints.
+
+
+* **Lab 2: The Trapped Documentation (Intermediate Level)**
+* *Overview:* The AI is now instructed to reject direct requests containing forbidden keywords. Participants must shift to **semantic reconnaissance** to understand how the model's instructions are structured and craft an **indirect extraction attack** to make the AI list technical parameters without waking up its filters.
+
+
+* **Lab 3: The Hardened Environment (Advanced Level)**
+* *Overview:* All logical backdoors and structural loopholes are patched, forcing a strict refusal protocol on any suspicious prompt. Participants must exploit the core mechanics of language generation through **Token-by-Token Exfiltration**, forcing the model to split or reformat the secret so the semantic guardrails fail to recognize the leak.
