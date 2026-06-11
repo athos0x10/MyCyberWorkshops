@@ -92,3 +92,6 @@ To succeed in this duel, participants must overcome three distinct layers of sec
 
 * **Lab 3: The Hardened Environment (Advanced Level)**
 * *Overview:* All logical backdoors and structural loopholes are patched, forcing a strict refusal protocol on any suspicious prompt. Participants must exploit the core mechanics of language generation through **Token-by-Token Exfiltration**, forcing the model to split or reformat the secret so the semantic guardrails fail to recognize the leak.
+
+* **Lab 4: The DLP Proxy Duel (Defensive & Perimeter Level)**
+* *Overview:* The attack surface shifts completely from prompt engineering to application security. The AI model itself is left entirely vulnerable and compliant by default, but it is now wrapped inside an independent Python-based **Data Loss Prevention (DLP) Proxy**. Participants will engage in a dual-role challenge: as the Blue Team, they must write robust regex filters and input/output sanitization logic in Python; as the Red Team, they must craft advanced obfuscation, encoding (like Base64), and structural bypasses to defeat the proxy's defensive code.
